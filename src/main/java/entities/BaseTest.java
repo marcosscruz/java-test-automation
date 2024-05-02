@@ -7,19 +7,17 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
-
 public class BaseTest {
 
     public String url;
     public WebDriver driver;
 
-
     @BeforeMethod
     public void preCond(){
-        url = System.getProperty("user.dir")+"/src/paginas/componentes.html"; //varivel que armazena o diretório da aplicação
-        driver = new ChromeDriver(); //instancia do navegador
-        driver.get(url);// abre o navegador na url especificada
-        driver.manage().window().maximize();    //maximiza a tela
+        url = System.getProperty("user.dir")+"/src/paginas/componentes.html";
+        driver = new ChromeDriver();
+        driver.get(url);
+        //driver.manage().window().maximize();
     }
 
     @AfterMethod
@@ -30,6 +28,4 @@ public class BaseTest {
     protected WebDriver getDriver() {
         return driver;
     }
-
-
 }
