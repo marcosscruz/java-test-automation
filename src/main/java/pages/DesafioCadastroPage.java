@@ -63,7 +63,7 @@ public class DesafioCadastroPage extends BasePage {
 
     public DesafioCadastroPage selecionarComidaCarne() {
         Random random = new Random();
-        int opcao = random.nextInt(2);
+        int opcao = random.nextInt(3);
 
         switch (opcao) {
             case 0:
@@ -85,12 +85,48 @@ public class DesafioCadastroPage extends BasePage {
         return this;
     }
 
+    // Automatize a seleção de cada opção do dropdown de escolaridade e valide se a opção selecionada é a que foi definida no teste.
     public DesafioCadastroPage selecionarEscolaridade() {
+        Random random = new Random();
+        int opcao = random.nextInt(9);
+
         WebElement escolaridade = driver.findElement(By.id("elementosForm:escolaridade"));
         Select selectEscolaridade = new Select(escolaridade);
-        selectEscolaridade.selectByValue("1grauincomp");
-        selectEscolaridade.selectByIndex(3);
-        selectEscolaridade.selectByValue("doutorado");
+
+        switch (opcao) {
+            case 0:
+                //selectEscolaridade.selectByValue("1grauincomp");
+                selectEscolaridade.getFirstSelectedOption();
+                break;
+            case 1:
+                //selectEscolaridade.selectByValue("1graucomp");
+                selectEscolaridade.selectByIndex(1);
+                break;
+            case 2:
+                //selectEscolaridade.selectByValue("2grauincomp");
+                selectEscolaridade.selectByVisibleText("2o grau incompleto");
+                break;
+            case 3:
+                selectEscolaridade.selectByValue("2graucomp");
+                break;
+            case 4:
+                selectEscolaridade.selectByValue("superior");
+                break;
+            case 5:
+                selectEscolaridade.selectByValue("especializacao");
+                break;
+            case 6:
+                selectEscolaridade.selectByValue("mestrado");
+                break;
+            case 7:
+                selectEscolaridade.selectByValue("doutorado");
+                break;
+            default:
+                System.out.println("Opção inválida");
+                break;
+        }
+
+        // selectEscolaridade.selectByIndex(3);
         // selectEscolaridade.getFirstSelectedOption() // retornar o valor do primeiro selecionado
         // selectEscolaridade.getAllSelectedOptions() // lista com todos os selecionados
 
