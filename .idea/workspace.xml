@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba6c972a-110b-486c-b211-d5951e3ea19b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/DesafioCadastroPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/DesafioCadastroPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/DesafioAutomacaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/DesafioAutomacaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/BaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/BaseTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pages/DesafioCadastroPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/DesafioCadastroPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/tests/DesafioAutomacaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/DesafioAutomacaoTest.class" afterDir="false" />
     </list>
@@ -34,28 +29,28 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="1itC1xWyk7g1W4AjQKQuBdIYHDI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TestNG.DesafioAutomacaoTest.deveCadastrarPessoaExemplo.executor": "Run",
-    "TestNG.DesafioAutomacaoTest.deveVerificarComida.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/marce/OneDrive/Documentos/IntelliJ/ufvjm_alunos/java-test-automation",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TestNG.DesafioAutomacaoTest.deveCadastrarPessoaExemplo.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.DesafioAutomacaoTest.deveVerificarComida.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/marce/OneDrive/Documentos/IntelliJ/ufvjm_alunos/java-test-automation&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="pages" />
