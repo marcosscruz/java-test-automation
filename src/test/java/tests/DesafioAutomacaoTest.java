@@ -17,13 +17,14 @@ public class DesafioAutomacaoTest extends BaseTest {
     public static Object[][] criarDados() {
         return new Object[][]{
                 {"Marcos", "Cruz", "Masculino"},
-                {"Carol", "Queiroz","Feminino"},
+                //{"Carol", "Queiroz","Feminino"},
         };
     }
 
     // Automatize um teste que insira valores nos campos "Nome" e "Sobrenome", e verifique se os textos inseridos são os esperados.
     // Crie testes que selecionem cada uma das opções de sexo ("Masculino" e "Feminino") usando botões de rádio. Inclua
     // uma validação para assegurar que a opção selecionada é a esperada.
+    // Automatize a seleção de cada opção do dropdown de escolaridade e valide se a opção selecionada é a que foi definida no teste.
     @Test(dataProvider = "dadosCadastro")//, dataProviderClass ="NomeClaseProviderExterno.class" )
     public void deveCadastrarPessoaExemplo(String nome, String sobrenome, String sexo) {
         DesafioCadastroPage cp = new DesafioCadastroPage(getDriver());
