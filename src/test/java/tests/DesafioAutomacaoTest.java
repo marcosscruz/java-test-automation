@@ -1,14 +1,13 @@
 package tests;
 
 import entities.BaseTest;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.DesafioCadastroPage;
-import java.time.Duration;
 
 public class DesafioAutomacaoTest extends BaseTest {
 
@@ -17,21 +16,19 @@ public class DesafioAutomacaoTest extends BaseTest {
     public static Object[][] criarDados() {
         return new Object[][]{
                 {"Marcos", "Cruz", "Masculino"},
-                //{"Carol", "Queiroz","Feminino"},
+                //{"Carol", "Queiroz", "Feminino"},
         };
     }
 
     // Automatize um teste que insira valores nos campos "Nome" e "Sobrenome", e verifique se os textos inseridos são os esperados.
     // Crie testes que selecionem cada uma das opções de sexo ("Masculino" e "Feminino") usando botões de rádio. Inclua
     // uma validação para assegurar que a opção selecionada é a esperada.
-    // Automatize a seleção de cada opção do dropdown de escolaridade e valide se a opção selecionada é a que foi definida no teste.
     @Test(dataProvider = "dadosCadastro")//, dataProviderClass ="NomeClaseProviderExterno.class" )
     public void deveCadastrarPessoaExemplo(String nome, String sobrenome, String sexo) {
         DesafioCadastroPage cp = new DesafioCadastroPage(getDriver());
         cp.preencherNome(nome)
                 .preencherSobrenome(sobrenome)
                 .selecionarSexo(sexo)
-                .selecionarEscolaridade()
                 .clicarCadastrar();
 
         Assert.assertEquals(cp.verificaResultadoNome(), "Nome: " + nome);
@@ -51,8 +48,56 @@ public class DesafioAutomacaoTest extends BaseTest {
                 .selecionarEscolaridade()
                 .selecionarComidaCarne()
                 .selecionarComidaVegetariana()
+                .clicarCadastrar()
+                .concordaAlerta() // alerta so aparece quando preciona o botão de cadastrar
                 .clicarCadastrar();
         Assert.assertEquals(cp.verificaTextoAlerta(),"Tem certeza que voce eh vegetariano?");
+    }
+
+    // Automatize a seleção de cada opção do dropdown de escolaridade e valide se a opção selecionada é a que foi definida no teste.
+    @Test(dataProvider = "dadosCadastro")
+    public void deveVerificarEscolaridade(String nome, String sobrenome, String sexo) {
+        DesafioCadastroPage cp = new DesafioCadastroPage(getDriver());
+        cp.preencherNome(nome)
+                .preencherSobrenome(sobrenome)
+                .selecionarSexo(sexo)
+                .selecionarEscolaridade()
+                .clicarCadastrar();
+
+        Assert.assertEquals(cp.verificaResultadoEscolaridade(), "Escolaridade: " + "superior");
+    }
+
+    // Desenvolva testes que selecionem múltiplas opções de esportes e valide se as seleções estão corretas. Teste
+    // também cenários específicos, como não selecionar nenhum esporte ou selecionar todas as opções.
+    @Test(dataProvider = "dadosCadastro")
+    public void deveVerificarEsportes(String nome, String sobrenome, String sexo){
+        DesafioCadastroPage cp = new DesafioCadastroPage(getDriver());
+        cp.preencherNome(nome)
+                .preencherSobrenome(sobrenome)
+                .selecionarSexo(sexo)
+                .selecionarComidaCarne()
+                .selecionarEscolaridade()
+                .selecionarEsportes();
+
+        WebElement selectElement = driver.findElement(By.id("elementosForm:esportes"));
+        Select selectEsportes = new Select(selectElement);
+
+        // Chamar o método validarOpcoesSelecionadas da classe DesafioCadastroPage
+        cp.verificarResultadoEsportes(selectEsportes, new String[]{"natacao", "futebol", "Karate"});
+    }
+
+    // Automatize testes que cliquem no botão "Cadastrar" e verifiquem se o status do cadastro é atualizado
+    // corretamente no elemento "Status".
+    @Test(dataProvider = "dadosCadastro")
+    public void deveVerificarStatusAtualizado(String nome, String sobrenome, String sexo) {
+        DesafioCadastroPage cp = new DesafioCadastroPage(getDriver());
+        cp.preencherNome(nome)
+                .preencherSobrenome(sobrenome)
+                .selecionarSexo(sexo)
+                .selecionarComidaVegetariana()
+                .selecionarEscolaridade()
+                .selecionarEsportes()
+                .clicarCadastrar();
     }
 
 }
