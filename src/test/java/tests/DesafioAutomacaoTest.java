@@ -94,10 +94,15 @@ public class DesafioAutomacaoTest extends BaseTest {
         cp.preencherNome(nome)
                 .preencherSobrenome(sobrenome)
                 .selecionarSexo(sexo)
-                .selecionarComidaVegetariana()
-                .selecionarEscolaridade()
-                .selecionarEsportes()
-                .clicarCadastrar();
+                .selecionarComidaCarne()
+                .selecionarEscolaridade();
+
+        String statusCadastro = cp.verificaStatusCadastro();
+
+        Assert.assertEquals(statusCadastro, "Cadastrado!");
+        Assert.assertEquals(cp.verificaResultadoNome(), "Nome: " + nome);
+        Assert.assertEquals(cp.verificaResultadoSobreNome(), "Sobrenome: " + sobrenome);
+        Assert.assertEquals(cp.verificaResultadoSexo(), "Sexo: " + sexo);
     }
 
 }
