@@ -9,9 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import java.util.List;
-import java.util.Random;
 import java.time.Duration;
 
 public class DesafioCadastroPage extends BasePage {
@@ -30,16 +28,16 @@ public class DesafioCadastroPage extends BasePage {
     private WebElement radioSexoFem;
     @FindBy(id = "elementosForm:sexo:0")
     private WebElement radioSexoMasc;
-
     @FindBy(id = "elementosForm:escolaridade")
     private WebElement dropdownEscolaridade;
-
     @FindBy(id = "elementosForm:comidaFavorita:3")
     private WebElement vegetarianoCheckbox;
     @FindBy(id = "elementosForm:comidaFavorita:0")
     private WebElement carneCheckbox;
     @FindBy(id = "elementosForm:comidaFavorita:1")
     private WebElement frangoCheckbox;
+    @FindBy(id = "elementosForm:comidaFavorita:2")
+    private WebElement pizzaCheckbox;
 
     public DesafioCadastroPage preencherNome(String nome) {
         nomeTextField.sendKeys(nome);
@@ -66,18 +64,17 @@ public class DesafioCadastroPage extends BasePage {
     }
 
     public DesafioCadastroPage selecionarComidaCarne() {
-        Random random = new Random();
-        int opcao = random.nextInt(2);
+        carneCheckbox.click();
+        return this;
+    }
 
-        switch (opcao) {
-            case 0:
-                carneCheckbox.click();
-                break;
-            case 1:
-                frangoCheckbox.click();
-                break;
-        }
+    public DesafioCadastroPage selecionarComidaFrango() {
+        frangoCheckbox.click();
+        return this;
+    }
 
+    public DesafioCadastroPage selecionarComidaPizza() {
+        pizzaCheckbox.click();
         return this;
     }
 
