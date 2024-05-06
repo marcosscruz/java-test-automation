@@ -9,8 +9,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import java.util.Random;
 
+import java.util.List;
+import java.util.Random;
 import java.time.Duration;
 
 public class DesafioCadastroPage extends BasePage {
@@ -26,14 +27,17 @@ public class DesafioCadastroPage extends BasePage {
     @FindBy(xpath = "/html/body/center/form/table/tbody/tr[10]/td/input")
     private WebElement cadastrarButton;
     @FindBy(id = "elementosForm:sexo:1")
-    private WebElement  radioSexoFem;
+    private WebElement radioSexoFem;
     @FindBy(id = "elementosForm:sexo:0")
-    private WebElement  radioSexoMasc;
+    private WebElement radioSexoMasc;
+
+    @FindBy(id = "elementosForm:escolaridade")
+    private WebElement dropdownEscolaridade;
 
     @FindBy(id = "elementosForm:comidaFavorita:3")
-    private WebElement  vegetarianoCheckbox;
+    private WebElement vegetarianoCheckbox;
     @FindBy(id = "elementosForm:comidaFavorita:0")
-    private WebElement  carneCheckbox;
+    private WebElement carneCheckbox;
     @FindBy(id = "elementosForm:comidaFavorita:1")
     private WebElement frangoCheckbox;
 
@@ -58,12 +62,12 @@ public class DesafioCadastroPage extends BasePage {
 
     public DesafioCadastroPage selecionarComidaVegetariana() {
        vegetarianoCheckbox.click();
-        return this;
+       return this;
     }
 
     public DesafioCadastroPage selecionarComidaCarne() {
         Random random = new Random();
-        int opcao = random.nextInt(3);
+        int opcao = random.nextInt(2);
 
         switch (opcao) {
             case 0:
@@ -71,9 +75,6 @@ public class DesafioCadastroPage extends BasePage {
                 break;
             case 1:
                 frangoCheckbox.click();
-                break;
-            default:
-                System.out.println("Opção inválida");
                 break;
         }
 
@@ -87,48 +88,29 @@ public class DesafioCadastroPage extends BasePage {
 
     // Automatize a seleção de cada opção do dropdown de escolaridade e valide se a opção selecionada é a que foi definida no teste.
     public DesafioCadastroPage selecionarEscolaridade() {
-        Random random = new Random();
-        int opcao = random.nextInt(9);
+        WebElement escolaridadeSelecionada = driver.findElement(By.id("elementosForm:escolaridade"));
+        Select selectEscolaridade = new Select(escolaridadeSelecionada);
 
-        WebElement escolaridade = driver.findElement(By.id("elementosForm:escolaridade"));
-        Select selectEscolaridade = new Select(escolaridade);
+        selectEscolaridade.selectByVisibleText("Superior");
 
-        switch (opcao) {
-            case 0:
-                //selectEscolaridade.selectByValue("1grauincomp");
-                selectEscolaridade.getFirstSelectedOption();
-                break;
-            case 1:
-                //selectEscolaridade.selectByValue("1graucomp");
-                selectEscolaridade.selectByIndex(1);
-                break;
-            case 2:
-                //selectEscolaridade.selectByValue("2grauincomp");
-                selectEscolaridade.selectByVisibleText("2o grau incompleto");
-                break;
-            case 3:
-                selectEscolaridade.selectByValue("2graucomp");
-                break;
-            case 4:
-                selectEscolaridade.selectByValue("superior");
-                break;
-            case 5:
-                selectEscolaridade.selectByValue("especializacao");
-                break;
-            case 6:
-                selectEscolaridade.selectByValue("mestrado");
-                break;
-            case 7:
-                selectEscolaridade.selectByValue("doutorado");
-                break;
-            default:
-                System.out.println("Opção inválida");
-                break;
+        return this;
+    }
+
+    // Desenvolva testes que selecionem múltiplas opções de esportes e valide se as seleções estão corretas. Teste
+    // também cenários específicos, como não selecionar nenhum esporte ou selecionar todas as opções.
+    public DesafioCadastroPage selecionarEsportes() {
+        WebElement esportesSelecionados = driver.findElement(By.id("elementosForm:esportes"));
+        Select selectEsportes = new Select(esportesSelecionados);
+
+        if(selectEsportes.isMultiple()){
+            selectEsportes.selectByValue("natacao");
+            selectEsportes.selectByValue("futebol");
+            selectEsportes.selectByValue("Karate");
+            //selectEsportes.selectByVisibleText("Futebol");
+            //selectEsportes.selectByIndex(3);
+        } else {
+            System.out.println("Não suporta múltipla seleções");
         }
-
-        // selectEscolaridade.selectByIndex(3);
-        // selectEscolaridade.getFirstSelectedOption() // retornar o valor do primeiro selecionado
-        // selectEscolaridade.getAllSelectedOptions() // lista com todos os selecionados
 
         return this;
     }
@@ -149,6 +131,51 @@ public class DesafioCadastroPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement labelNome = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='descSexo']")));
         return labelNome.getText();
+    }
+
+    public String verificaResultadoEscolaridade() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement labelEscolaridade = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='descEscolaridade']")));
+        return labelEscolaridade.getText();
+    }
+
+    /*
+        public String verificarResultadoEsportes(Select select, String[] esportesEsperados) {
+        List<WebElement> esportesSelecionados = select.getAllSelectedOptions();
+
+        if (esportesSelecionados.size() != esportesEsperados.length){
+            return "ERROR";
+        }
+
+        for(WebElement opcao : esportesSelecionados){
+            String valorSelecao = opcao.getAttribute("value");
+            if(!verificarEsporteSelecionado(valorSelecao, esportesEsperados)){
+                return "Eportes inesperados selecionados: " + valorSelecao;
+            }
+        }
+
+        return "Tudo correto!";
+    }
+     */
+
+    public void verificarResultadoEsportes(Select select, String[] esportesEsperados) {
+        List<WebElement> esportesSelecionados = select.getAllSelectedOptions();
+
+        Assert.assertEquals(esportesSelecionados.size(), esportesEsperados.length);
+
+        for(WebElement opcao : esportesSelecionados){
+            String valorSelecao = opcao.getAttribute("value");
+            Assert.assertTrue(verificarEsporteSelecionado(valorSelecao, esportesEsperados));
+        }
+    }
+
+    public boolean verificarEsporteSelecionado(String esporte, String[] esportesEsperados){
+        for (String esporteEsperado : esportesEsperados){
+            if(esporte.equals(esporteEsperado)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public String verificaTextoAlerta(){
