@@ -191,4 +191,13 @@ public class DesafioCadastroPage extends BasePage {
         return this;
     }
 
+    public String verificaStatusCadastro() {
+        clicarCadastrar();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement statusElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='resultado']")));
+
+        return statusElement.getText();
+    }
+
 }
