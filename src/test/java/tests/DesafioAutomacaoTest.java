@@ -82,7 +82,6 @@ public class DesafioAutomacaoTest extends BaseTest {
         WebElement selectElement = driver.findElement(By.id("elementosForm:esportes"));
         Select selectEsportes = new Select(selectElement);
 
-        // Chamar o método validarOpcoesSelecionadas da classe DesafioCadastroPage
         cp.verificarResultadoEsportes(selectEsportes, new String[]{"natacao", "futebol", "Karate"});
     }
 
@@ -99,10 +98,15 @@ public class DesafioAutomacaoTest extends BaseTest {
 
         String statusCadastro = cp.verificaStatusCadastro();
 
-        Assert.assertEquals(statusCadastro, "Cadastrado!");
-        Assert.assertEquals(cp.verificaResultadoNome(), "Nome: " + nome);
-        Assert.assertEquals(cp.verificaResultadoSobreNome(), "Sobrenome: " + sobrenome);
-        Assert.assertEquals(cp.verificaResultadoSexo(), "Sexo: " + sexo);
+        Assert.assertEquals(statusCadastro, "Cadastrado!"
+                + "\nNome: " + nome
+                + "\nSobrenome: " + sobrenome
+                + "\nSexo: " + sexo
+                + "\nComida: " + "Carne\n"
+                + cp.verificaResultadoEscolaridade()
+                + "\nEsportes:"
+                + "\nSugestoes:"
+        );
     }
 
 }
