@@ -112,6 +112,23 @@ public class DesafioCadastroPage extends BasePage {
         return this;
     }
 
+    public DesafioCadastroPage selecinarTodosEsportes (){
+        WebElement todosEsportes = driver.findElement(By.id("elementosForm:esportes"));
+        Select selectEsportes = new Select(todosEsportes);
+
+        if(selectEsportes.isMultiple()){
+            selectEsportes.selectByIndex(0);
+            selectEsportes.selectByIndex(1);
+            selectEsportes.selectByIndex(2);
+            selectEsportes.selectByIndex(3);
+            selectEsportes.selectByIndex(4);
+        } else {
+            System.out.println("ERROR");
+        }
+
+        return this;
+    }
+
     public String verificaResultadoNome() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement labelNome = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='descNome']")));
@@ -135,25 +152,6 @@ public class DesafioCadastroPage extends BasePage {
         WebElement labelEscolaridade = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='descEscolaridade']")));
         return labelEscolaridade.getText();
     }
-
-    /*
-        public String verificarResultadoEsportes(Select select, String[] esportesEsperados) {
-        List<WebElement> esportesSelecionados = select.getAllSelectedOptions();
-
-        if (esportesSelecionados.size() != esportesEsperados.length){
-            return "ERROR";
-        }
-
-        for(WebElement opcao : esportesSelecionados){
-            String valorSelecao = opcao.getAttribute("value");
-            if(!verificarEsporteSelecionado(valorSelecao, esportesEsperados)){
-                return "Eportes inesperados selecionados: " + valorSelecao;
-            }
-        }
-
-        return "Tudo correto!";
-    }
-     */
 
     public void verificarResultadoEsportes(Select select, String[] esportesEsperados) {
         List<WebElement> esportesSelecionados = select.getAllSelectedOptions();
