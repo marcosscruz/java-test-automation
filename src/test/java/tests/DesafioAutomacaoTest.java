@@ -1,7 +1,9 @@
 package tests;
 
 import entities.BaseTest;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -75,14 +77,37 @@ public class DesafioAutomacaoTest extends BaseTest {
         cp.preencherNome(nome)
                 .preencherSobrenome(sobrenome)
                 .selecionarSexo(sexo)
-                .selecionarComidaCarne()
-                .selecionarEscolaridade()
                 .selecionarEsportes();
 
         WebElement selectElement = driver.findElement(By.id("elementosForm:esportes"));
         Select selectEsportes = new Select(selectElement);
 
         cp.verificarResultadoEsportes(selectEsportes, new String[]{"natacao", "futebol", "Karate"});
+    }
+
+    // Cenário específico: selecionou todos as opções
+    @Test(dataProvider = "dadosCadastro")
+    public void deveVerificarTodosEsportes(String nome, String sobrenome, String sexo){
+        try {
+            DesafioCadastroPage cp = new DesafioCadastroPage(getDriver());
+            cp.preencherNome(nome)
+                    .preencherSobrenome(sobrenome)
+                    .selecionarSexo(sexo)
+                    .selecinarTodosEsportes()
+                    .clicarCadastrar()
+                    .concordaAlerta()
+                    .clicarCadastrar();
+
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+
+            WebElement selectElement = driver.findElement(By.id("elementosForm:esportes"));
+            Select selectEsportes = new Select(selectElement);
+
+            cp.verificarResultadoEsportes(selectEsportes, new String[]{"natacao", "futebol", "Corrida", "Karate", "nada"});
+        } catch (UnhandledAlertException e) {
+            System.out.println("Alerta esperado: " + e.getAlert());
+        }
     }
 
     // Automatize testes que cliquem no botão "Cadastrar" e verifiquem se o status do cadastro é atualizado
