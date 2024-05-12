@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ba6c972a-110b-486c-b211-d5951e3ea19b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/DesafioCadastroPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/DesafioCadastroPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/DesafioAutomacaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/DesafioAutomacaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/DesafioCadastroPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/DesafioCadastroPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/DesafioAutomacaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/DesafioAutomacaoTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,24 +40,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;TestNG.DesafioAutomacaoTest.deveCadastrarPessoaExemplo.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.DesafioAutomacaoTest.deveVerificarComida.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.DesafioAutomacaoTest.deveVerificarEscolaridade.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.DesafioAutomacaoTest.deveVerificarEsportes.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.DesafioAutomacaoTest.deveVerificarStatusAtualizado.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.DesafioAutomacaoTest.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/marce/OneDrive/Documentos/IntelliJ/ufvjm_alunos/java-test-automation&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TestNG.DesafioAutomacaoTest.deveCadastrarPessoaExemplo.executor": "Run",
+    "TestNG.DesafioAutomacaoTest.deveVerificarComida.executor": "Run",
+    "TestNG.DesafioAutomacaoTest.deveVerificarEscolaridade.executor": "Run",
+    "TestNG.DesafioAutomacaoTest.deveVerificarEsportes.executor": "Run",
+    "TestNG.DesafioAutomacaoTest.deveVerificarStatusAtualizado.executor": "Run",
+    "TestNG.DesafioAutomacaoTest.deveVerificarTodosEsportes (1).executor": "Debug",
+    "TestNG.DesafioAutomacaoTest.deveVerificarTodosEsportes.executor": "Run",
+    "TestNG.DesafioAutomacaoTest.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/marce/OneDrive/Documentos/IntelliJ/ufvjm_alunos/java-test-automation",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="pages" />
@@ -64,7 +70,7 @@
       <recent name="C:\Users\aline.zanin\Documents\ufvjm\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.DesafioAutomacaoTest.deveVerificarStatusAtualizado">
+  <component name="RunManager" selected="TestNG.DesafioAutomacaoTest.deveVerificarTodosEsportes">
     <configuration name="DesafioAutomacaoTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ufvjm_alunos" />
       <extension name="coverage">
@@ -82,7 +88,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DesafioAutomacaoTest.deveCadastrarPessoaExemplo" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="DesafioAutomacaoTest.deveVerificarComida" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ufvjm_alunos" />
       <extension name="coverage">
         <pattern>
@@ -92,25 +98,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.DesafioAutomacaoTest" />
-      <option name="METHOD_NAME" value="deveCadastrarPessoaExemplo" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DesafioAutomacaoTest.deveVerificarEscolaridade" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="ufvjm_alunos" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.DesafioAutomacaoTest" />
-      <option name="METHOD_NAME" value="deveVerificarEscolaridade" />
+      <option name="METHOD_NAME" value="deveVerificarComida" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -154,13 +142,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DesafioAutomacaoTest.deveVerificarTodosEsportes" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ufvjm_alunos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.DesafioAutomacaoTest" />
+      <option name="METHOD_NAME" value="deveVerificarTodosEsportes" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.DesafioAutomacaoTest.deveVerificarStatusAtualizado" />
-        <item itemvalue="TestNG.DesafioAutomacaoTest.deveCadastrarPessoaExemplo" />
+        <item itemvalue="TestNG.DesafioAutomacaoTest.deveVerificarTodosEsportes" />
+        <item itemvalue="TestNG.DesafioAutomacaoTest.deveVerificarComida" />
         <item itemvalue="TestNG.DesafioAutomacaoTest" />
         <item itemvalue="TestNG.DesafioAutomacaoTest.deveVerificarEsportes" />
-        <item itemvalue="TestNG.DesafioAutomacaoTest.deveVerificarEscolaridade" />
+        <item itemvalue="TestNG.DesafioAutomacaoTest.deveVerificarStatusAtualizado" />
       </list>
     </recent_temporary>
   </component>
